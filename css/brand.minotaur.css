@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BRAND: MINOTAUR DESIGN
+   minotaurdesign.com
+   Richard Lee Brand Ecosystem · v1.0 · June 2026
+
+   CHARACTER: Warmest expression in the ecosystem. Mahogany + gold palette
+   on a linen base. An artisan aesthetic — expressive but controlled.
+   The only brand that uses non-zero corner radius (4px/8px) and a warm
+   tinted background as the page base instead of white or neutral gray.
+
+   ACCESSIBILITY NOTE:
+   Gold (#D4913A) on linen (#F8EDD8) = 2.1:1 — decorative borders only,
+   never body text. Use mahogany-700 (#6B2000) or darker for readable text.
+
+   LOAD ORDER:
+     1. tokens.primitives.css
+     2. brand.minotaur.css           ← this file
+     3. components.css
+
+   USAGE:
+     <html data-brand="minotaur">   or   class="brand-minotaur" on root.
+═══════════════════════════════════════════════════════════════════════════ */
+
+[data-brand="minotaur"],
+.brand-minotaur {
+
+  /* ── Surface ────────────────────────────────────────────────────────────── */
+  --bg-base:               var(--prim-mahog-50);        /* #F8EDD8 — linen     */
+  --bg-subtle:             var(--prim-mahog-100);        /* #F0DDB0             */
+  --bg-muted:              var(--prim-mahog-200);        /* #E8C47A             */
+  --bg-inverse:            var(--prim-mahog-900);        /* #2A0D00 — deep brn  */
+  --bg-card:               rgba(255, 255, 255, 0.85);   /* warm white cards    */
+  --bg-overlay:            rgba(42, 13, 0, 0.6);
+
+  /* ── Foreground ─────────────────────────────────────────────────────────── */
+  --fg-base:               var(--prim-mahog-900);        /* #2A0D00             */
+  --fg-secondary:          var(--prim-mahog-700);        /* #6B2000             */
+  --fg-muted:              var(--prim-mahog-400);        /* #C47020             */
+  --fg-disabled:           var(--prim-mahog-300);        /* #D4913A — decorative*/
+  --fg-inverse:            var(--prim-mahog-50);         /* #F8EDD8             */
+  --fg-on-accent:          var(--prim-mahog-50);         /* text on dark btn    */
+
+  /* ── Accent ─────────────────────────────────────────────────────────────── */
+  --accent:                var(--prim-mahog-300);        /* #D4913A — gold      */
+  --accent-hover:          var(--prim-mahog-400);        /* #C47020             */
+  --accent-active:         var(--prim-mahog-500);
+  --accent-subtle:         var(--prim-mahog-100);
+  --accent-fg:             var(--prim-mahog-700);        /* #6B2000 — readable  */
+  --accent-fg-inverse:     var(--prim-mahog-300);        /* gold on dark bg     */
+
+  /* ── Border ─────────────────────────────────────────────────────────────── */
+  --border-default:        rgba(107, 32, 0, 0.15);
+  --border-strong:         rgba(107, 32, 0, 0.35);
+  --border-accent:         var(--prim-mahog-300);        /* gold border         */
+  --border-inverse:        rgba(248, 237, 216, 0.15);
+
+  /* ── Button: Primary (mahogany — dark, authoritative) ────────────────────── */
+  --btn-primary-bg:        var(--prim-mahog-700);        /* #6B2000             */
+  --btn-primary-fg:        var(--prim-mahog-50);         /* #F8EDD8             */
+  --btn-primary-border:    var(--prim-mahog-700);
+
+  /* ── Button: Secondary ───────────────────────────────────────────────────── */
+  --btn-secondary-bg:      transparent;
+  --btn-secondary-fg:      var(--prim-mahog-800);
+  --btn-secondary-border:  var(--prim-mahog-400);
+
+  /* ── Button: Accent (gold — decorative, not the primary path) ───────────── */
+  --btn-accent-bg:         var(--prim-mahog-300);        /* #D4913A             */
+  --btn-accent-fg:         var(--prim-mahog-900);        /* dark text on gold — WCAG */
+
+  /* ── Button sizing ───────────────────────────────────────────────────────── */
+  --btn-padding-y:         0.75rem;
+  --btn-padding-x:         1.5rem;
+
+  /* ── Card ────────────────────────────────────────────────────────────────── */
+  --card-bg:               rgba(255, 255, 255, 0.85);
+  --card-border:           rgba(107, 32, 0, 0.15);
+  --card-shadow:           0 2px 12px rgba(42, 13, 0, 0.10),
+                           0 1px 3px  rgba(42, 13, 0, 0.06);
+
+  /* ── Input ───────────────────────────────────────────────────────────────── */
+  --input-bg:              rgba(255, 255, 255, 0.9);
+  --input-border:          rgba(107, 32, 0, 0.25);
+  --input-focus:           var(--prim-mahog-700);
+  --input-focus-ring:      rgba(107, 32, 0, 0.15);
+
+  /* ── Status ──────────────────────────────────────────────────────────────── */
+  --status-success:        var(--prim-green-700);
+  --status-success-bg:     var(--prim-green-100);
+  --status-warning:        var(--prim-amber-700);
+  --status-warning-bg:     var(--prim-amber-100);
+  --status-error:          var(--prim-red-alert);
+  --status-error-bg:       var(--prim-red-alert-100);
+
+  /* ── Radius (Minotaur — only brand with soft corners) ───────────────────── */
+  --radius-default:        var(--radius-sm);             /* 2px  */
+  --radius-card:           var(--radius-md);             /* 4px  */
+  --radius-btn:            var(--radius-sm);             /* 2px  */
+  --radius-input:          var(--radius-sm);             /* 2px  */
+  --radius-badge:          var(--radius-md);             /* 4px  */
+
+  /* ── Shadow ──────────────────────────────────────────────────────────────── */
+  --shadow-card:           0 2px 12px rgba(42, 13, 0, 0.10),
+                           0 1px 3px  rgba(42, 13, 0, 0.06);
+  --shadow-nav:            0 1px 4px  rgba(42, 13, 0, 0.08);
+  --shadow-dropdown:       0 4px 16px rgba(42, 13, 0, 0.12);
+  --shadow-modal:          0 16px 48px rgba(42, 13, 0, 0.20);
+
+  /* ── Layout ──────────────────────────────────────────────────────────────── */
+  --section-y:             var(--space-16);
+  --content-max:           64rem;
+  --content-narrow:        44rem;
+
+  /* ── Nav ─────────────────────────────────────────────────────────────────── */
+  --nav-height:            64px;
+  --nav-bg:                var(--prim-mahog-900);        /* dark nav on linen page */
+  --nav-border:            rgba(248, 237, 216, 0.10);
+
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MINOTAUR DESIGN — BASE STYLES
+───────────────────────────────────────────────────────────────────────────── */
+
+[data-brand="minotaur"] body,
+.brand-minotaur body,
+[data-brand="minotaur"],
+.brand-minotaur {
+  font-family: var(--font-sans);
+  background:  var(--bg-base);
+  color:       var(--fg-base);
+}
+
+[data-brand="minotaur"] h1,
+[data-brand="minotaur"] h2,
+[data-brand="minotaur"] h3,
+.brand-minotaur h1,
+.brand-minotaur h2,
+.brand-minotaur h3 {
+  font-family:  var(--font-serif);
+  font-weight:  var(--weight-normal);
+  color:        var(--fg-base);
+}
+
+[data-brand="minotaur"] h1 { font-size: var(--text-3xl); line-height: var(--leading-tight); }
+[data-brand="minotaur"] h2 { font-size: var(--text-2xl); line-height: var(--leading-snug);  }
+[data-brand="minotaur"] h3 { font-size: var(--text-xl);  line-height: var(--leading-snug);  }
+[data-brand="minotaur"] h4 { font-size: var(--text-lg);  font-family: var(--font-sans); font-weight: var(--weight-medium); color: var(--fg-secondary); }
+
+.brand-minotaur h1 { font-size: var(--text-3xl); line-height: var(--leading-tight); }
+.brand-minotaur h2 { font-size: var(--text-2xl); line-height: var(--leading-snug);  }
+.brand-minotaur h3 { font-size: var(--text-xl);  line-height: var(--leading-snug);  }
+.brand-minotaur h4 { font-size: var(--text-lg);  font-family: var(--font-sans); font-weight: var(--weight-medium); color: var(--fg-secondary); }
+
+/* ── Dark navigation bar on warm-toned pages ─────────────────────────────── */
+
+[data-brand="minotaur"] .nav,
+.brand-minotaur .nav {
+  background-color: var(--nav-bg);
+  border-bottom:    var(--border-hairline) solid var(--nav-border);
+}
+
+[data-brand="minotaur"] .nav__wordmark,
+.brand-minotaur .nav__wordmark {
+  color: var(--fg-inverse);
+}
+
+[data-brand="minotaur"] .nav__link,
+.brand-minotaur .nav__link {
+  color: rgba(248, 237, 216, 0.65);
+}
+
+[data-brand="minotaur"] .nav__link:hover,
+[data-brand="minotaur"] .nav__link[aria-current="page"],
+.brand-minotaur .nav__link:hover,
+.brand-minotaur .nav__link[aria-current="page"] {
+  color: var(--fg-inverse);
+}
+
+/* ── Gold accent rule — replaces teal in this brand ─────────────────────── */
+
+[data-brand="minotaur"] .accent-rule,
+.brand-minotaur .accent-rule {
+  display:    block;
+  width:      48px;
+  height:     2px;
+  background: var(--accent);             /* gold */
+  margin:     var(--space-6) 0;
+}
+
+/* ── Gold border frame — decorative card treatment ───────────────────────── */
+
+[data-brand="minotaur"] .card--framed,
+.brand-minotaur .card--framed {
+  border:         var(--border-thin) solid var(--prim-mahog-300);
+  box-shadow:     inset 0 0 0 4px var(--prim-mahog-50),
+                  0 2px 12px rgba(42,13,0,0.10);
+}
+
+/* ── Section alt uses mahogany-50 on same linen page ────────────────────── */
+/* Override the default gray-50 from components.css                          */
+
+[data-brand="minotaur"] .section--alt,
+.brand-minotaur .section--alt {
+  background-color: var(--prim-white);   /* white breaks up the linen warmth */
+}
+
+/* ── Eyebrow in mahogany context ─────────────────────────────────────────── */
+
+[data-brand="minotaur"] .eyebrow,
+.brand-minotaur .eyebrow {
+  color: var(--prim-mahog-400);          /* #C47020 — readable sienna        */
+}
+
+[data-brand="minotaur"] .eyebrow--accent,
+.brand-minotaur .eyebrow--accent {
+  color: var(--accent-fg);               /* #6B2000                          */
+}
+
+/* ── Pullquote — mahogany left border ────────────────────────────────────── */
+
+[data-brand="minotaur"] .pullquote,
+.brand-minotaur .pullquote {
+  border-left-color: var(--prim-mahog-400);
+  color:             var(--fg-base);
+}
+
+/* ── Footer — warm, consistent with dark nav ─────────────────────────────── */
+
+[data-brand="minotaur"] .footer,
+.brand-minotaur .footer {
+  background-color: var(--prim-mahog-900);
+  border-top-color: rgba(248, 237, 216, 0.10);
+}
+
+[data-brand="minotaur"] .footer__copy,
+[data-brand="minotaur"] .footer__link,
+.brand-minotaur .footer__copy,
+.brand-minotaur .footer__link {
+  color: rgba(248, 237, 216, 0.45);
+}
+
+[data-brand="minotaur"] .footer__link:hover,
+.brand-minotaur .footer__link:hover {
+  color: var(--fg-inverse);
+}
